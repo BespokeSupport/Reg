@@ -1,0 +1,16 @@
+{
+  "name": "bespoke-support/reg",
+  "description": "UK Vehicle Registration Validation",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Richard Seymour",
+      "email": "web@bespoke.support"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "BespokeSupport\\Reg\\": "lib/"
+    }
+  }
+}

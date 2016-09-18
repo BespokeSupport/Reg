@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="tests/_bootstrap.php"
+         stopOnError="false"
+         stopOnFailure="false"
+>
+    <testsuites>
+        <testsuite name="Project Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+
+    <filter>
+        <whitelist>
+            <directory>./lib</directory>
+        </whitelist>
+        <blacklist>
+            <directory>./</directory>
+            <directory>./vendor</directory>
+        </blacklist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html"
+             target="./build/coverage"
+             charset="UTF-8"
+             yui="true"
+             highlight="true"
+             lowUpperBound="50"
+             highLowerBound="80"/>
+    </logging>
+</phpunit>

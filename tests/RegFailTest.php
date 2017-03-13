@@ -3,13 +3,13 @@
 use BespokeSupport\Reg\Reg;
 
 /**
- * Class RegFailsTest
+ * Class RegFailsTest.
  */
 class RegFailsTest extends \PHPUnit_Framework_TestCase
 {
     public function testRegs()
     {
-        $plates = require dirname(__FILE__) . '/_testPlates.php';
+        $plates = require dirname(__FILE__).'/_testPlates.php';
 
         foreach ($plates as $registration => $data) {
             if ($data['registration']) {

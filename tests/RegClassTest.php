@@ -3,7 +3,7 @@
 use BespokeSupport\Reg\Reg;
 
 /**
- * Class RegClassTest
+ * Class RegClassTest.
  */
 class RegClassTest extends \PHPUnit_Framework_TestCase
 {

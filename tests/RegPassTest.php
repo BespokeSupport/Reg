@@ -3,7 +3,7 @@
 use BespokeSupport\Reg\Reg;
 
 /**
- * Class RegTest
+ * Class RegTest.
  */
 class RegTest extends \PHPUnit_Framework_TestCase
 {
@@ -91,7 +91,7 @@ class RegTest extends \PHPUnit_Framework_TestCase
 
     public function testComplete()
     {
-        $plates = require dirname(__FILE__) . '/_testPlates.php';
+        $plates = require dirname(__FILE__).'/_testPlates.php';
 
         foreach ($plates as $registration => $data) {
             $reg = Reg::create($registration);

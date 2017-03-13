@@ -3,34 +3,20 @@
 namespace BespokeSupport\Reg;
 
 /**
- * Class Reg
- * @package BespokeSupport\Reg
+ * Class Reg.
  */
 class Reg
 {
-    /**
-     *
-     */
     const INVALID_REG = 'Not a valid Registration Mark';
-    /**
-     *
-     */
+
     const STYLE_CURRENT = 'current';
-    /**
-     *
-     */
+
     const STYLE_DATELESS_LETTER = 'dateless_letter';
-    /**
-     *
-     */
+
     const STYLE_DATELESS_NUMBER = 'dateless_number';
-    /**
-     *
-     */
+
     const STYLE_PREFIX = 'prefix';
-    /**
-     *
-     */
+
     const STYLE_SUFFIX = 'suffix';
 
     /**
@@ -65,6 +51,7 @@ class Reg
 
     /**
      * Reg constructor.
+     *
      * @param $reg
      */
     public function __construct($reg)
@@ -117,6 +104,7 @@ class Reg
 
     /**
      * @param $plate
+     *
      * @return string
      */
     public static function clean($plate)
@@ -128,6 +116,7 @@ class Reg
 
     /**
      * @param $reg
+     *
      * @return Reg|null
      */
     public static function create($reg)
@@ -137,22 +126,16 @@ class Reg
         }
 
         try {
-            return new Reg($reg);
+            return new self($reg);
         } catch (\Exception $e) {
-            return null;
+            return;
         }
     }
 
-    /**
-     *
-     */
     protected function extraValidationCurrent()
     {
     }
 
-    /**
-     *
-     */
     protected function extraValidationDateless()
     {
         if ('III' == $this->charLetter) {
@@ -164,16 +147,10 @@ class Reg
         }
     }
 
-    /**
-     *
-     */
     protected function extraValidationDatelessLetter()
     {
     }
 
-    /**
-     *
-     */
     protected function extraValidationDatelessNumber()
     {
         if ('0' == substr($this->charNumber, 0, 1)) {
@@ -181,9 +158,6 @@ class Reg
         }
     }
 
-    /**
-     *
-     */
     protected function extraValidationPrefix()
     {
         if ('ZAA' == $this->charLetter) {
@@ -195,9 +169,6 @@ class Reg
         }
     }
 
-    /**
-     *
-     */
     protected function extraValidationSuffix()
     {
         if ('QQQ' == $this->charLetter) {
@@ -236,19 +207,19 @@ class Reg
     {
         switch ($this->style) {
             case self::STYLE_DATELESS_NUMBER:
-                $return = $this->charNumber . ' ' . $this->charLetter;
+                $return = $this->charNumber.' '.$this->charLetter;
                 break;
             case self::STYLE_DATELESS_LETTER:
-                $return = $this->charLetter . ' ' . $this->charNumber;
+                $return = $this->charLetter.' '.$this->charNumber;
                 break;
             case self::STYLE_PREFIX:
-                $return = $this->charPrefix . $this->charNumber . ' ' . $this->charLetter;
+                $return = $this->charPrefix.$this->charNumber.' '.$this->charLetter;
                 break;
             case self::STYLE_SUFFIX:
-                $return = $this->charLetter . ' ' . $this->charNumber . $this->charSuffix;
+                $return = $this->charLetter.' '.$this->charNumber.$this->charSuffix;
                 break;
             case self::STYLE_CURRENT:
-                $return = $this->charPrefix . $this->charNumber . ' ' . $this->charLetter;
+                $return = $this->charPrefix.$this->charNumber.' '.$this->charLetter;
                 break;
             // @codeCoverageIgnoreStart
             default:
@@ -264,7 +235,7 @@ class Reg
      */
     public function isStyleCurrent()
     {
-        return (self::STYLE_CURRENT == $this->style);
+        return self::STYLE_CURRENT == $this->style;
     }
 
     /**
@@ -272,7 +243,7 @@ class Reg
      */
     public function isStyleDateless()
     {
-        return (in_array($this->style, [self::STYLE_DATELESS_LETTER, self::STYLE_DATELESS_NUMBER]));
+        return in_array($this->style, [self::STYLE_DATELESS_LETTER, self::STYLE_DATELESS_NUMBER]);
     }
 
     /**
@@ -280,7 +251,7 @@ class Reg
      */
     public function isStylePrefix()
     {
-        return (self::STYLE_PREFIX == $this->style);
+        return self::STYLE_PREFIX == $this->style;
     }
 
     /**
@@ -288,6 +259,6 @@ class Reg
      */
     public function isStyleSuffix()
     {
-        return (self::STYLE_SUFFIX == $this->style);
+        return self::STYLE_SUFFIX == $this->style;
     }
 }
